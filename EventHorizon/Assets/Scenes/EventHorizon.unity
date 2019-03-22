@@ -617,6 +617,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laneChangeSpeed: 20
+  lanePositions:
+  - -10
+  - -5
+  - 0
+  - 5
+  - 10
 --- !u!1 &1544447737
 GameObject:
   m_ObjectHideFlags: 0

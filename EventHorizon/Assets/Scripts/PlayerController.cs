@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     private int lane = 3; //5 lanes total, 3 is in the middle lane, range = 1-5
     private bool movingRight = false;
     private bool movingLeft = false;
+
+    public float[] lanePositions;
     
 
 
