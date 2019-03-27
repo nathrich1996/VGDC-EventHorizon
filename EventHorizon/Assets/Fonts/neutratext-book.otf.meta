@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 02e808fed4080a24fac9929d058304a0
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Neutra Text
+  fontNames:
+  - Neutra Text
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 4222adef77efc1b4d9492f1648b7f3cc, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
