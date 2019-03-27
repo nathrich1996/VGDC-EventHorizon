@@ -11,28 +11,70 @@ public class PlayerController : MonoBehaviour
     private int lane = 3; //5 lanes total, 3 is in the middle lane, range = 1-5
     private bool movingRight = false;
     private bool movingLeft = false;
-
+    private Vector3 position;
     public float[] lanePositions;
-    
-
-
+    /*Lane Positions
+   || 1   2   3   4   5 ||
+    1 = (-20.14, 0.6, -42.3) 
+    2 = (-10.07, 0.6, -42.3) 
+    3 = (0, 0.6, -42.3) 
+    4 = (9.91, 0.6, -42.3) 
+    5 = (20.07, 0.6, -42.3)
+     */
     void Start()
     {
         Debug.Log("Game Started!");
         rb = GetComponent<Rigidbody>();
+        position = Vector3.zero;
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         //Finding Input
         if (Input.GetKeyDown("a")) //move left
         {
 
             movingRight = false;
             movingLeft = true;
-            MoveLane(false);
+            MoveLane(false); //move left
             //rb.AddForce(Time.deltaTime *-laneChangeSpeed ,0,0);
+            switch(lane) //decides which lane to move on based on new lane value from MoveLane()
+            {
+               
+                case 1: //move to lane 1 (-20.14, 0.6, -42.3)
+                    position.x = -20.14f;
+                    position.y = 0.6f;
+                    position.z = -42.3f;
+                    Debug.Log("In Lane 1");
+                    break;
+                case 2: //move to lane 2 (-10.07, 0.6, -42.3)
+                    position.x = -10.07f;
+                    position.y = 0.6f;
+                    position.z = -42.3f;
+                    Debug.Log("In Lane 2");
+                    break;
+                case 3: //move to lane 3 (0, 0.6, -42.3)
+                    position.x = 0f;
+                    position.y = 0.6f;
+                    position.z = -42.3f;
+                    Debug.Log("In Lane 3");
+                    break;
+                case 4: //move to lane 4 (9.91, 0.6, -42.3)
+                    position.x = 9.91f;
+                    position.y = 0.6f;
+                    position.z = -42.3f;
+                    Debug.Log("In Lane 4");
+                    break;
+                case 5: //move to lane 5 (20.07, 0.6, -42.3)
+                    position.x = 20.07f;
+                    position.y = 0.6f;
+                    position.z = -42.3f;
+                    Debug.Log("In Lane 5");
+                    break;
+                
+            }
             Debug.Log("A press");
         }
         if (Input.GetKeyDown("d")) //move right
@@ -40,8 +82,43 @@ public class PlayerController : MonoBehaviour
 
             movingRight = true;
             movingLeft = false;
-            MoveLane(true);
+            MoveLane(true); //move right
             //rb.AddForce(Time.deltaTime * laneChangeSpeed, 0, 0);
+            switch (lane) //decides which lane to move on based on new lane value from MoveLane()
+            {
+
+                case 1: //move to lane 1 (-20.14, 0.6, -42.3)
+                    position.x = -20.14f;
+                    position.y = 0.6f;
+                    position.z = -42.3f;
+                    Debug.Log("In Lane 1");
+                    break;
+                case 2: //move to lane 2 (-10.07, 0.6, -42.3)
+                    position.x = -10.07f;
+                    position.y = 0.6f;
+                    position.z = -42.3f;
+                    Debug.Log("In Lane 2");
+                    break;
+                case 3: //move to lane 3 (0, 0.6, -42.3)
+                    position.x = 0f;
+                    position.y = 0.6f;
+                    position.z = -42.3f;
+                    Debug.Log("In Lane 3");
+                    break;
+                case 4: //move to lane 4 (9.91, 0.6, -42.3)
+                    position.x = 9.91f;
+                    position.y = 0.6f;
+                    position.z = -42.3f;
+                    Debug.Log("In Lane 4");
+                    break;
+                case 5: //move to lane 5 (20.07, 0.6, -42.3)
+                    position.x = 20.07f;
+                    position.y = 0.6f;
+                    position.z = -42.3f;
+                    Debug.Log("In Lane 5");
+                    break;
+
+            }
             Debug.Log("D press");
         }
         //if (!Input.anyKeyDown)    
@@ -49,52 +126,53 @@ public class PlayerController : MonoBehaviour
         //    movingRight = false;
         //    movingLeft = false;
         //}
-        Vector3 position = Vector3.zero;
-        switch (lane)
-        {
-            case 1: //Leftmost end of the map
-                position -= Vector3.right * LANE_DIST;
-                Debug.Log("In Lane 1");
-                break;
-            case 2:
-                if (movingRight)
-                    position += Vector3.right * LANE_DIST;
-                else if (movingLeft)
-                    position -= Vector3.right * LANE_DIST;
-                Debug.Log("In Lane 2");
-                break;
-            case 3:
-                if (movingRight)
-                    position += Vector3.right * LANE_DIST;
-                else if (movingLeft)
-                    position -= Vector3.right * LANE_DIST;
-                Debug.Log("In Lane 3");
-                break;
-            case 4:
-                if (movingRight)
-                    position += Vector3.right * LANE_DIST;
-                else if (movingLeft)
-                    position -= Vector3.right * LANE_DIST;
-                Debug.Log("In Lane 4");
-                break;
-            case 5:
-                position += Vector3.right * LANE_DIST;
-                Debug.Log("In Lane 5");
-                break;
-            
-        }
-        Vector3 moveVector = Vector3.zero;
-        moveVector.x = (position - transform.position).normalized.x * laneChangeSpeed;
-        //moveVector.y = 0.6f;
-        //moveVector.z = -42.3f;
-        //rb.MovePosition(moveVector * Time.deltaTime);
-        //if (movingLeft || movingRight)
-        //    rb.position += moveVector;
-        rb.AddForce(moveVector);
+
+        //switch (lane)
+        //{
+        //    case 1: //Leftmost end of the map
+        //        position -= Vector3.right * LANE_DIST;
+        //        Debug.Log("In Lane 1");
+        //        break;
+        //    case 2:
+        //        if (movingRight)
+        //            position += Vector3.right * LANE_DIST;
+        //        else if (movingLeft)
+        //            position -= Vector3.right * LANE_DIST;
+        //        Debug.Log("In Lane 2");
+        //        break;
+        //    case 3:
+        //        if (movingRight)
+        //            position += Vector3.right * LANE_DIST;
+        //        else if (movingLeft)
+        //            position -= Vector3.right * LANE_DIST;
+        //        Debug.Log("In Lane 3");
+        //        break;
+        //    case 4:
+        //        if (movingRight)
+        //            position += Vector3.right * LANE_DIST;
+        //        else if (movingLeft)
+        //            position -= Vector3.right * LANE_DIST;
+        //        Debug.Log("In Lane 4");
+        //        break;
+        //    case 5:
+        //        position += Vector3.right * LANE_DIST;
+        //        Debug.Log("In Lane 5");
+        //        break;
+
+        //}
+        //Vector3 moveVector = Vector3.zero;
+        //moveVector.x = (position - transform.position).normalized.x * laneChangeSpeed;
+        ////moveVector.y = 0.6f;
+        ////moveVector.z = -42.3f;
+        ////rb.MovePosition(moveVector * Time.deltaTime);
+        ////if (movingLeft || movingRight)
+        ////    rb.position += moveVector;
+        //rb.AddForce(moveVector);
+        rb.MovePosition(position);
     }
     void MoveLane(bool right)
     {
-        lane += (right) ? 1 : -1;
-        lane = Mathf.Clamp(lane, 0, 6);
+        lane += (right) ? 1 : -1; //move right if true, left if false
+        lane = Mathf.Clamp(lane, 0, 6); //stay in lanes 1-5
     }
 }
