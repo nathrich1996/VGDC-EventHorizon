@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Score : MonoBehaviour
 {
     public Text score_text;
+
     private int score;
     private int multiplier;
     private float timer;
@@ -28,6 +29,6 @@ public class Score : MonoBehaviour
             score_text.text = "score: " + score.ToString();
             timer = 0;
         }
-        
     }
+    
 }
