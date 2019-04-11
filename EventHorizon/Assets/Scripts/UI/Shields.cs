@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class Shields : MonoBehaviour
 {
     public Text shields;
-    private int currentShields;
+    public int currentShields;
     // Start is called before the first frame update
     void Start()
     {

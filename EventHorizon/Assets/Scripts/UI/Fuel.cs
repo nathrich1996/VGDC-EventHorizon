@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Fuel : MonoBehaviour
 {
     public Text fuelText;
-    int fuelMeter;
+    public int fuelMeter;
     float timer;
     int fuelLoss;
     float fuel_interval;

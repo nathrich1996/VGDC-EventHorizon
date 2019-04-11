@@ -196,6 +196,7 @@ public class PlayerController : MonoBehaviour
         }
         
     }
+
     void MoveLane(bool right)
     {
         lane += (right) ? 1 : -1; //move right if true, left if false
