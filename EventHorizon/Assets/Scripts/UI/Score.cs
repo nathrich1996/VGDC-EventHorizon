@@ -26,7 +26,7 @@ public class Score : MonoBehaviour
         if (timer > score_interval) //add score by 10 every three seconds
         {
             score += multiplier;
-            score_text.text = "score: " + score.ToString();
+            score_text.text = score.ToString();
             timer = 0;
         }
     }
