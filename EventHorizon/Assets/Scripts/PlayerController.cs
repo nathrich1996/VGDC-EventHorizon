@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     private bool movingLeft = false;
 
     private Vector3 position;
-    public float[] lanePositions = { -20f, -10f, 0f, 10f, 20f };
+    float[] lanePositions = { -20f, -10f, 0f, 10f, 20f };
     /*Lane Positions
    || 1   2   3   4   5 ||
     1 = (-20.14, 0.6, -42.3) 
