@@ -231,6 +231,7 @@ MonoBehaviour:
   shields: {fileID: 149722822}
   currentShields: 0
   dm: {fileID: 819853375}
+  noShields: 0
 --- !u!114 &149722822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -464,6 +465,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 48f824684cf6618408ecbbc2c209ceb5, type: 2}
+    - target: {fileID: 2300000, guid: beecbf2e991124268a58b9167f302597, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 703ca970d03a61b409fdbf7b19b765e0, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: beecbf2e991124268a58b9167f302597, type: 3}
 --- !u!1 &328498584
@@ -2161,6 +2166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score_text: {fileID: 1988826425}
   score: 0
+  shields: {fileID: 0}
 --- !u!1001 &907590930166871113
 PrefabInstance:
   m_ObjectHideFlags: 0
