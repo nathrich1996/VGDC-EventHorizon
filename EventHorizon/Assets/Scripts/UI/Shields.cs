@@ -8,7 +8,7 @@ public class Shields : MonoBehaviour
     public int currentShields;
     public DeathMenu dm;
 
-    bool noShields = false;
+   public  bool noShields = false;
     // Start is called before the first frame update
     void Start()
     {

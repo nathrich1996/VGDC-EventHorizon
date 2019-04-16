@@ -7,10 +7,12 @@ public class Score : MonoBehaviour
 {
     public Text score_text;
 
-    private int score;
+    public int score;
     private int multiplier;
     private float timer;
     private float score_interval = 0.20f;
+    
+    public Shields shields;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,12 +25,16 @@ public class Score : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if (timer > score_interval) //add score by 10 every three seconds
+        if (!shields.noShields)
         {
-            score += multiplier;
-            score_text.text = score.ToString();
-            timer = 0;
+            if (timer > score_interval) //add score by 10 every three seconds
+            {
+                score += multiplier;
+                score_text.text = score.ToString();
+                timer = 0;
+            }
         }
+        
     }
     
 }
