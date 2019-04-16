@@ -6,6 +6,9 @@ public class Shields : MonoBehaviour
 {
     public Text shields;
     public int currentShields;
+    public DeathMenu dm;
+
+    bool noShields = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +19,15 @@ public class Shields : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (currentShields <= 0)
+        {
+            currentShields = 0;
+            noShields = true;
+        }
+        if (noShields)
+        {
+            dm.ToggleDeathMenu();
+        }
         shields.text = "shield: " + currentShields.ToString();
     }
 }
