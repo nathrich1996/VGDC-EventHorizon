@@ -16,11 +16,11 @@ public class PlayerController : MonoBehaviour
     float[] lanePositions = { -20f, -10f, 0f, 10f, 20f };
     /*Lane Positions
    || 1   2   3   4   5 ||
-    1 = (-20.14, 0.6, -42.3) 
-    2 = (-10.07, 0.6, -42.3) 
-    3 = (0, 0.6, -42.3) 
-    4 = (9.91, 0.6, -42.3) 
-    5 = (20.07, 0.6, -42.3)
+    1 = (-20.14, 0.6, -170) 
+    2 = (-10.07, 0.6, -170) 
+    3 = (0, 0.6, -170) 
+    4 = (9.91, 0.6, -170) 
+    5 = (20.07, 0.6, -170)
      */
     void Start()
     {
@@ -40,43 +40,7 @@ public class PlayerController : MonoBehaviour
             movingRight = false;
             movingLeft = true;
 
-            MoveLane(false); //move left
-            //rb.AddForce(Time.deltaTime *-laneChangeSpeed ,0,0);
-            //switch(lane) //decides which lane to move on based on new lane value from MoveLane()
-            //{
-               
-                //case 1: //move to lane 1 (-20.14, 0.6, -42.3)
-                //    position.x = -20.14f;
-                //    position.y = 0.6f;
-                //    position.z = -42.3f;
-                //    Debug.Log("In Lane 1");
-                //    break;
-                //case 2: //move to lane 2 (-10.07, 0.6, -42.3)
-                //    position.x = -10.07f;
-                //    position.y = 0.6f;
-                //    position.z = -42.3f;
-                //    Debug.Log("In Lane 2");
-                //    break;
-                //case 3: //move to lane 3 (0, 0.6, -42.3)
-                //    position.x = 0f;
-                //    position.y = 0.6f;
-                //    position.z = -42.3f;
-                //    Debug.Log("In Lane 3");
-                //    break;
-                //case 4: //move to lane 4 (9.91, 0.6, -42.3)
-                //    position.x = 9.91f;
-                //    position.y = 0.6f;
-                //    position.z = -42.3f;
-                //    Debug.Log("In Lane 4");
-                //    break;
-                //case 5: //move to lane 5 (20.07, 0.6, -42.3)
-                //    position.x = 20.07f;
-                //    position.y = 0.6f;
-                //    position.z = -42.3f;
-                //    Debug.Log("In Lane 5");
-                //    break;
-                
-            //}
+            MoveLane(false); 
             Debug.Log("A press");
         }
         if (Input.GetKeyDown("d")) //move right
@@ -85,42 +49,7 @@ public class PlayerController : MonoBehaviour
             movingRight = true;
             movingLeft = false;
             MoveLane(true); //move right
-            ////rb.AddForce(Time.deltaTime * laneChangeSpeed, 0, 0);
-            //switch (lane) //decides which lane to move on based on new lane value from MoveLane()
-            //{
-
-            //    case 1: //move to lane 1 (-20.14, 0.6, -42.3)
-            //        position.x = -20.14f;
-            //        position.y = 0.6f;
-            //        position.z = -42.3f;
-            //        Debug.Log("In Lane 1");
-            //        break;
-            //    case 2: //move to lane 2 (-10.07, 0.6, -42.3)
-            //        position.x = -10.07f;
-            //        position.y = 0.6f;
-            //        position.z = -42.3f;
-            //        Debug.Log("In Lane 2");
-            //        break;
-            //    case 3: //move to lane 3 (0, 0.6, -42.3)
-            //        position.x = 0f;
-            //        position.y = 0.6f;
-            //        position.z = -42.3f;
-            //        Debug.Log("In Lane 3");
-            //        break;
-            //    case 4: //move to lane 4 (9.91, 0.6, -42.3)
-            //        position.x = 9.91f;
-            //        position.y = 0.6f;
-            //        position.z = -42.3f;
-            //        Debug.Log("In Lane 4");
-            //        break;
-            //    case 5: //move to lane 5 (20.07, 0.6, -42.3)
-            //        position.x = 20.07f;
-            //        position.y = 0.6f;
-            //        position.z = -42.3f;
-            //        Debug.Log("In Lane 5");
-            //        break;
-
-            //}
+           
             Debug.Log("D press");
         }
 
