@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.19699422, g: 0.081087224, b: 0.036641512, a: 1}
+  m_IndirectSpecularColor: {r: 0.19704121, g: 0.081080236, b: 0.03667168, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2166,7 +2166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score_text: {fileID: 1988826425}
   score: 0
-  shields: {fileID: 0}
+  shields: {fileID: 149722821}
 --- !u!1001 &907590930166871113
 PrefabInstance:
   m_ObjectHideFlags: 0
