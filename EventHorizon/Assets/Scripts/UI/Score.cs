@@ -11,6 +11,7 @@ public class Score : MonoBehaviour
     private int multiplier;
     private float timer;
     private float score_interval = 0.20f;
+    public Fuel fuel;
     public DeathMenu dm; 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,7 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CheckOverdrive();
         timer += Time.deltaTime;
         if (!dm.deathScreenActive)
         {
@@ -35,5 +37,20 @@ public class Score : MonoBehaviour
         }
         
     }
-    
+    void CheckOverdrive()
+
+    {
+        if (fuel.overdrive)
+        {
+            score_text.color = Color.yellow;
+            multiplier = 20;
+        }
+        else
+        {
+            score_text.color = Color.white;
+            multiplier = 10;
+        }
+    }
+
+
 }
