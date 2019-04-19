@@ -10,7 +10,8 @@ public class Fuel : MonoBehaviour
     float timer;
     int fuelLoss;
     float fuel_interval;
-
+    public DeathMenu dm; 
+    public bool noFuel = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,12 +24,28 @@ public class Fuel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
-        if (timer > fuel_interval )
+        if (fuelMeter <= 0f)
         {
-            fuelMeter -= fuelLoss;
-            timer = 0;
+            noFuel = true;
         }
-        fuelText.text = "fuel: " + fuelMeter.ToString();
+        else if (fuelMeter >= 7)
+        {
+            fuelMeter--;
+        }
+        if (noFuel)
+        {
+            dm.ToggleDeathMenu();
+        }
+        else
+        {
+            timer += Time.deltaTime;
+            if (timer > fuel_interval)
+            {
+                fuelMeter -= fuelLoss;
+                timer = 0;
+            }
+            fuelText.text = "fuel: " + fuelMeter.ToString();
+
+        }
     }
 }

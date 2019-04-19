@@ -11,8 +11,7 @@ public class Score : MonoBehaviour
     private int multiplier;
     private float timer;
     private float score_interval = 0.20f;
-    
-    public Shields shields;
+    public DeathMenu dm; 
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +24,7 @@ public class Score : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if (!shields.noShields)
+        if (!dm.deathScreenActive)
         {
             if (timer > score_interval) //add score by 10 every three seconds
             {
