@@ -1539,6 +1539,8 @@ MonoBehaviour:
   fuelText: {fileID: 958634019}
   fuelMeter: 0
   dm: {fileID: 819853375}
+  spawner: {fileID: 287008117}
+  score: {fileID: 1988826427}
   noFuel: 0
   overdrive: 0
 --- !u!1 &1097423988
