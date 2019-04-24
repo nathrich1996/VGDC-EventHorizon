@@ -47,4 +47,8 @@ public class FuelGem : MonoBehaviour
 
         //}
     }
+    public void SetSpeed(float speed)
+    {
+        gemSpeed = speed;
+    }
 }

@@ -44,4 +44,9 @@ public class Obstacle : MonoBehaviour
         Destroy(gameObject);
         dead = true;
     }
+    public void SetSpeed(float speed)
+    {
+        obsSpeed = speed;
+    }
+    
 }

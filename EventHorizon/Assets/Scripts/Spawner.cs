@@ -7,6 +7,7 @@ public class Spawner : MonoBehaviour
     //public GameOb spawnee;
     public GameObject obstacle;
     public GameObject fuelGem;
+    
     public bool stopSpawing = false;
     float spawnTime =2.0f;
     float spawnDelay = 2.0f;
@@ -48,6 +49,14 @@ public class Spawner : MonoBehaviour
         //Instantiate(spawnee, transform.position, transform.rotation);
         if (stopSpawing) {
             CancelInvoke("SpawnObject");
+        }
+    }
+    public void ShortenDelay(float delay)
+    {
+        spawnDelay -= delay;
+        if (spawnDelay <= 0)
+        {
+            spawnDelay += .1f;
         }
     }
 }

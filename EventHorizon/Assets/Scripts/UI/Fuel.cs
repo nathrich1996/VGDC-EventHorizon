@@ -10,10 +10,17 @@ public class Fuel : MonoBehaviour
     float timer;
     int fuelLoss;
     float fuel_interval;
-    public DeathMenu dm; 
+    public DeathMenu dm;
+    public Spawner spawner;
+    public Score score;
     public bool noFuel = false;
     public bool overdrive = false;
-
+    float overdriveTimer = 0;
+    float overdriveLimit = 5.0f;
+    float overdriveSpeed = 40f;
+    bool upgradeDifficulty = false;
+    GameObject[] obstacles;
+    GameObject[] gems;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +33,16 @@ public class Fuel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (score.score % 1000 ==0) //Make things harder for the player
+        {
+            obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
+            gems = GameObject.FindGameObjectsWithTag("Fuel");
+            SetFuelGemSpeed(overdriveSpeed);
+            SetObstacleSpeed(overdriveSpeed);
+            IncrementOverdriveSpeed(1f);
+            spawner.ShortenDelay(.50f);
+        }
         if (fuelMeter <= 0f)
         {
             noFuel = true;
@@ -34,30 +51,93 @@ public class Fuel : MonoBehaviour
         {
             fuelMeter--;
         }
-        else if (fuelMeter > 5)
+        switch (overdrive)
         {
-            overdrive = true;
-            fuel_interval = 3.5f;
+            case true:
+                if (fuelMeter <= 5)
+                {
+                    overdrive = false;
+                }
+                obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
+                gems = GameObject.FindGameObjectsWithTag("Fuel");
+                if (!upgradeDifficulty)
+
+                {
+                    SetFuelGemSpeed(overdriveSpeed);
+                    SetObstacleSpeed(overdriveSpeed);
+                    IncrementOverdriveSpeed(5.0f);
+                    upgradeDifficulty = true;
+                }
+
+                spawner.ShortenDelay(.25f);
+                break;
+            case false:
+                if (fuelMeter > 5)
+                {
+                    overdrive = true;
+
+                    //GameObject.FindGameObjectsWithTag("Obstacle")[0].GetComponent<Obstacle>().SetSpeed(10);
+                    //fuel_interval = 3.5f;
+                }
+                obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
+                gems = GameObject.FindGameObjectsWithTag("Fuel");
+                //SetFuelGemSpeed(25f);
+                //SetObstacleeSpeed(25f);
+                break;
         }
-        else if (fuelMeter <= 5)
-        {
-            overdrive = false;
-            fuel_interval = 5f;
-        }
+
+
         if (noFuel)
         {
             dm.ToggleDeathMenu();
         }
         else
         {
-            timer += Time.deltaTime;
-            if (timer > fuel_interval)
+            if (overdrive) //in over drive mode
             {
-                fuelMeter -= fuelLoss;
-                timer = 0;
+                overdriveTimer += Time.deltaTime; //increase timer
+                if (overdriveTimer >= overdriveLimit) //if timer reaches limit
+                {
+                    overdriveTimer = 0;
+                    overdrive = false;
+                    fuelMeter--;
+                }
             }
+            else if (!overdrive)
+            {
+                timer += Time.deltaTime;
+                if (timer > fuel_interval)
+                {
+                    fuelMeter -= fuelLoss;
+                    timer = 0;
+                    upgradeDifficulty = false;
+                }
+            }
+
             fuelText.text = "fuel: " + fuelMeter.ToString();
 
         }
+    } //end of update
+
+    public void SetFuelGemSpeed(float speed)
+    {
+        foreach (GameObject gem in gems)
+        {
+            gem.GetComponent<FuelGem>().SetSpeed(speed);
+        }
     }
+    public void SetObstacleSpeed(float speed)
+    {
+        foreach (GameObject obstacle in obstacles)
+        {
+            obstacle.GetComponent<Obstacle>().SetSpeed(speed);
+        }
+    }
+    public void IncrementOverdriveSpeed(float increment)
+    {
+        overdriveSpeed += increment;
+    }
+
+    
+    
 }
