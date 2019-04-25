@@ -21,6 +21,9 @@ public class Fuel : MonoBehaviour
     bool upgradeDifficulty = false;
     GameObject[] obstacles;
     GameObject[] gems;
+
+    int nextDifficultyIncreaseScore = 1000;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,8 +37,10 @@ public class Fuel : MonoBehaviour
     void Update()
     {
 
-        if (score.score % 1000 ==0) //Make things harder for the player
+        if (score.score > nextDifficultyIncreaseScore) //Make things harder for the player
         {
+            nextDifficultyIncreaseScore += 1000;
+            //spawner.IncrementDifficultySpeed();
             obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
             gems = GameObject.FindGameObjectsWithTag("Fuel");
             SetFuelGemSpeed(overdriveSpeed);
@@ -51,12 +56,14 @@ public class Fuel : MonoBehaviour
         {
             fuelMeter--;
         }
+
         switch (overdrive)
         {
             case true:
                 if (fuelMeter <= 5)
                 {
                     overdrive = false;
+                    spawner.overdriveActive = false;
                 }
                 obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
                 gems = GameObject.FindGameObjectsWithTag("Fuel");
@@ -75,6 +82,7 @@ public class Fuel : MonoBehaviour
                 if (fuelMeter > 5)
                 {
                     overdrive = true;
+                    spawner.overdriveActive = true;
 
                     //GameObject.FindGameObjectsWithTag("Obstacle")[0].GetComponent<Obstacle>().SetSpeed(10);
                     //fuel_interval = 3.5f;

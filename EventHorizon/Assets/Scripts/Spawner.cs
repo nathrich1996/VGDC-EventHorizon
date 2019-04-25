@@ -11,6 +11,11 @@ public class Spawner : MonoBehaviour
     public bool stopSpawing = false;
     float spawnTime =2.0f;
     float spawnDelay = 2.0f;
+
+    //Speed stuff
+    float difficultyObstacleSpeed;
+    [HideInInspector]
+    public bool overdriveActive;
     
     Vector3 spawnPoint; //point 
     string chosenSpawnObject;
@@ -39,11 +44,19 @@ public class Spawner : MonoBehaviour
         {
             case "obstacle":
                 spawnPoint.y = 1.5f;
-                Instantiate(obstacle, spawnPoint, transform.rotation);
+                GameObject newObstacle = Instantiate(obstacle, spawnPoint, transform.rotation);
+                if (overdriveActive)
+                    newObstacle.GetComponent<Obstacle>().SetSpeed(25 + difficultyObstacleSpeed);
+                else
+                    newObstacle.GetComponent<Obstacle>().SetSpeed(40 + difficultyObstacleSpeed);
                 break;
             case "gem":
                 spawnPoint.y = 0.6f;
-                Instantiate(fuelGem, spawnPoint, transform.rotation);
+                GameObject newGem = Instantiate(fuelGem, spawnPoint, transform.rotation);
+                if (overdriveActive)
+                    newGem.GetComponent<FuelGem>().SetSpeed(25 + difficultyObstacleSpeed);
+                else
+                    newGem.GetComponent<FuelGem>().SetSpeed(40 + difficultyObstacleSpeed);
                 break;
         }
         //Instantiate(spawnee, transform.position, transform.rotation);
