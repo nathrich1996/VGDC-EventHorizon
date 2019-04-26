@@ -45,7 +45,7 @@ public class Fuel : MonoBehaviour
             gems = GameObject.FindGameObjectsWithTag("Fuel");
             SetFuelGemSpeed(overdriveSpeed);
             SetObstacleSpeed(overdriveSpeed);
-            IncrementOverdriveSpeed(1f);
+            IncrementOverdriveSpeed(5f);
             spawner.ShortenDelay(.50f);
         }
         if (fuelMeter <= 0f)
@@ -108,7 +108,7 @@ public class Fuel : MonoBehaviour
                 {
                     overdriveTimer = 0;
                     overdrive = false;
-                    fuelMeter--;
+                    fuelMeter-=2;
                 }
             }
             else if (!overdrive)
@@ -143,7 +143,7 @@ public class Fuel : MonoBehaviour
     }
     public void IncrementOverdriveSpeed(float increment)
     {
-        overdriveSpeed += increment;
+        spawner.difficultyObstacleSpeed += increment;
     }
 
     
