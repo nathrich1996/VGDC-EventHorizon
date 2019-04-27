@@ -23,8 +23,6 @@ public class Spawner : MonoBehaviour
     Vector3 spawnPoint; //point 
     string[] spawnObjects = { "obstacle", "gem", "obstacle", "obstacle" }; //holds all possible items that can be spawned
     float[] xSpawnPoints = { -20f, -10f, 0f, 10f, 20f };
-    int randSpawnPoint; //index of randomly chosen spawn point
-    int randSpawnObject; // index of randomy chosen spawn object
 
     void Start()
     {
