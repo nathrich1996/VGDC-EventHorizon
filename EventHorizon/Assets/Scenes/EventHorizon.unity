@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.19704121, g: 0.081080236, b: 0.03667168, a: 1}
+  m_IndirectSpecularColor: {r: 0.19699422, g: 0.081087224, b: 0.036641512, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -372,6 +372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07f5db0e9cdcba24dbe3e87781e02cce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fuel: {fileID: 958634021}
   obstacle: {fileID: 2456097323139675451, guid: dc2a93be95f38204c8bbf0d60abfb9f2,
     type: 3}
   fuelGem: {fileID: 907590929465375770, guid: be3a9f8810e24634993d7785eaeccdba, type: 3}
@@ -694,7 +695,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 462327091}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -841,9 +842,9 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 374370d66b3bb65448e37ee1a688b1ca, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -937,8 +938,6 @@ GameObject:
   - component: {fileID: 546198237}
   - component: {fileID: 546198236}
   - component: {fileID: 546198235}
-  - component: {fileID: 546198240}
-  - component: {fileID: 546198239}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1030,32 +1029,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &546198239
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 546198234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41cf8049f899d426e96505903762c5b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ScrollY: 0.5
---- !u!114 &546198240
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 546198234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41cf8049f899d426e96505903762c5b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ScrollY: 0.5
 --- !u!1 &561573063
 GameObject:
   m_ObjectHideFlags: 0
@@ -1545,7 +1518,6 @@ MonoBehaviour:
   spawner: {fileID: 287008117}
   score: {fileID: 1988826427}
   noFuel: 0
-  overdrive: 0
 --- !u!1 &1097423988
 GameObject:
   m_ObjectHideFlags: 0
@@ -1963,7 +1935,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41cf8049f899d426e96505903762c5b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScrollY: -0.1
+  spawner: {fileID: 287008117}
 --- !u!1 &1765823117
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,93 +8,42 @@ public class Fuel : MonoBehaviour
     public Text fuelText;
     public int fuelMeter;
     float timer;
-    int fuelLoss;
     float fuel_interval;
     public DeathMenu dm;
     public Spawner spawner;
     public Score score;
     public bool noFuel = false;
-    public bool overdrive = false;
+    bool overdrive = false;
+
     float overdriveTimer = 0;
-    float overdriveLimit = 5.0f;
-    float overdriveSpeed = 40f;
-    bool upgradeDifficulty = false;
+
     GameObject[] obstacles;
     GameObject[] gems;
 
-    int nextDifficultyIncreaseScore = 1000;
+    int nextDifficultyIncreaseScore = 1;
 
     // Start is called before the first frame update
     void Start()
     {
         fuelMeter = 5;
         timer = 0f;
-        fuelLoss = 1;
         fuel_interval = 5.0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        if (score.score > nextDifficultyIncreaseScore) //Make things harder for the player
+        if ((score.score/1000) >= nextDifficultyIncreaseScore) //Make things harder for the player
         {
-            nextDifficultyIncreaseScore += 1000;
-            //spawner.IncrementDifficultySpeed();
-            obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
-            gems = GameObject.FindGameObjectsWithTag("Fuel");
-            SetFuelGemSpeed(overdriveSpeed);
-            SetObstacleSpeed(overdriveSpeed);
-            IncrementOverdriveSpeed(5f);
-            spawner.ShortenDelay(.50f);
-        }
-        if (fuelMeter <= 0f)
-        {
-            noFuel = true;
-        }
-        else if (fuelMeter >= 7)
-        {
-            fuelMeter--;
-        }
-
-        switch (overdrive)
-        {
-            case true:
-                if (fuelMeter <= 5)
-                {
-                    overdrive = false;
-                    spawner.overdriveActive = false;
-                }
-                obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
-                gems = GameObject.FindGameObjectsWithTag("Fuel");
-                if (!upgradeDifficulty)
-
-                {
-                    SetFuelGemSpeed(overdriveSpeed);
-                    SetObstacleSpeed(overdriveSpeed);
-                    IncrementOverdriveSpeed(5.0f);
-                    upgradeDifficulty = true;
-                }
-
-                spawner.ShortenDelay(.25f);
-                break;
-            case false:
-                if (fuelMeter > 5)
-                {
-                    overdrive = true;
-                    spawner.overdriveActive = true;
-
-                    //GameObject.FindGameObjectsWithTag("Obstacle")[0].GetComponent<Obstacle>().SetSpeed(10);
-                    //fuel_interval = 3.5f;
-                }
-                obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
-                gems = GameObject.FindGameObjectsWithTag("Fuel");
-                //SetFuelGemSpeed(25f);
-                //SetObstacleeSpeed(25f);
-                break;
+            nextDifficultyIncreaseScore += 1;
+            spawner.IncrementDifficultySpeed();
+            SetFuelGemSpeed();
+            SetObstacleSpeed();
+            spawner.Delay(.8f);
         }
 
 
+        //Adjusts Fuel Levels
         if (noFuel)
         {
             dm.ToggleDeathMenu();
@@ -104,11 +53,10 @@ public class Fuel : MonoBehaviour
             if (overdrive) //in over drive mode
             {
                 overdriveTimer += Time.deltaTime; //increase timer
-                if (overdriveTimer >= overdriveLimit) //if timer reaches limit
+                if (overdriveTimer > (fuel_interval*.75)) //if timer reaches limit
                 {
                     overdriveTimer = 0;
-                    overdrive = false;
-                    fuelMeter-=2;
+                    DecrementFuel();
                 }
             }
             else if (!overdrive)
@@ -116,35 +64,76 @@ public class Fuel : MonoBehaviour
                 timer += Time.deltaTime;
                 if (timer > fuel_interval)
                 {
-                    fuelMeter -= fuelLoss;
+                    DecrementFuel();
                     timer = 0;
-                    upgradeDifficulty = false;
                 }
             }
 
             fuelText.text = "fuel: " + fuelMeter.ToString();
+            //fuelText.text = spawner.Debug();
 
         }
-    } //end of update
-
-    public void SetFuelGemSpeed(float speed)
+    }
+    
+    //Updates speed for all objects of specified type
+    public void SetFuelGemSpeed()
     {
+        gems = GameObject.FindGameObjectsWithTag("Fuel");
         foreach (GameObject gem in gems)
         {
-            gem.GetComponent<FuelGem>().SetSpeed(speed);
+            gem.GetComponent<FuelGem>().SetSpeed(spawner.GetSpeed());
         }
     }
-    public void SetObstacleSpeed(float speed)
+    public void SetObstacleSpeed()
     {
+        obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
         foreach (GameObject obstacle in obstacles)
         {
-            obstacle.GetComponent<Obstacle>().SetSpeed(speed);
+            obstacle.GetComponent<Obstacle>().SetSpeed(spawner.GetSpeed());
         }
     }
-    public void IncrementOverdriveSpeed(float increment)
+
+    //Increments Fuel, checks overdrive, updates object speeds if necessary
+    public void IncrementFuel()
     {
-        spawner.difficultyObstacleSpeed += increment;
+        if (fuelMeter < 10)
+        {
+            fuelMeter++;
+        }
+        if (fuelMeter > 5 && overdrive != true)
+        {
+            overdrive = true;
+            SetFuelGemSpeed();
+            SetObstacleSpeed();
+            spawner.Delay(.5f);
+        }
     }
+    public void DecrementFuel()
+    {
+        fuelMeter--;
+        if (fuelMeter < 1)
+        {
+            noFuel = true;
+        }
+        else if (fuelMeter <= 5 && overdrive != false)
+        {
+            overdrive = false;
+            SetFuelGemSpeed();
+            SetObstacleSpeed();
+            spawner.Delay(2f);
+        }
+    }
+
+    public int GetFuelLevel()
+    {
+        return fuelMeter;
+    }
+
+    public bool OverdriveStatus()
+    {
+        return overdrive;
+    }
+  
 
     
     

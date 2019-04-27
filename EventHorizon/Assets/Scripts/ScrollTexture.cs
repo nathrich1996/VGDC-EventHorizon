@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class ScrollTexture : MonoBehaviour
 {
-	public float ScrollY = 0.5f;
+    public Spawner spawner;
+	//public float ScrollY = 0.5f;
+   // public GameObject SpawnObject;
+    float speed;
 
     // Update is called once per frame
     void Update()
     {
-        float OffsetY = Time.time * ScrollY;
+        speed = spawner.GetSpeed()*(-.002f);
+        //speed = -.05f;
+        float OffsetY = (Time.time * speed);
         GetComponent<MeshRenderer>().material.mainTextureOffset = new Vector2(0, OffsetY);
+        
     }
 }
