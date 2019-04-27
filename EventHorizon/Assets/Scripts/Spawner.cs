@@ -74,15 +74,11 @@ public class Spawner : MonoBehaviour
                     SpawnObject(spawnObjects[randSpawnObject]);
                     obstacles++;
                 }
-                else
-                {
-                    
-                }
             }
         }
         else
         {
-            numObstacles = Random.Range(0, 3);
+            numObstacles = Random.Range(1, 4);
 
 
             while (obstacles < numObstacles)
