@@ -9,6 +9,7 @@ TagManager:
   - Fuel UI
   - Shield UI
   - Score
+  - Spawn
   layers:
   - Default
   - TransparentFX
