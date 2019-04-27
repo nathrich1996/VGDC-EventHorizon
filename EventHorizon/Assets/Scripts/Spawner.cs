@@ -14,9 +14,7 @@ public class Spawner : MonoBehaviour
 
     //Speed stuff
     float difficultyObstacleSpeed;
-    [HideInInspector]
-    public bool overdriveActive;
-    
+
     Vector3 spawnPoint; //point 
     string chosenSpawnObject;
     string[] spawnObjects =  { "obstacle","gem"}; //holds all possible items that can be spawned
