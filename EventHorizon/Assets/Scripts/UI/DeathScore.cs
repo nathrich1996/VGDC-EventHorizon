@@ -18,12 +18,7 @@ public class DeathScore : MonoBehaviour
     void Update()
     {
         if (score < sc.score)
-            if (sc.score > 4000) //count faster if it is really high
-                score += 50;
-            else if (sc.score <= 4000 && sc.score > 2000) ///count a little fast
-                score += 20;
-            else if (sc.score < 2000) 
-                score +=10;
+            score+=10;
         else
             score = sc.score;
         score_text.text = "Score: " + score.ToString();

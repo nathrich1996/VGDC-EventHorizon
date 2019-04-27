@@ -19,6 +19,8 @@ public class Spawner : MonoBehaviour
     string chosenSpawnObject;
     string[] spawnObjects =  { "obstacle","gem"}; //holds all possible items that can be spawned
     float[] xSpawnPoints = { -20f, -10f, 0f, 10f, 20f };
+    int randSpawnPoint; //index of randomly chosen spawn point
+    int randSpawnObject; // index of randomy chosen spawn object
 
     void Start() {
         spawnPoint = new Vector3(0,.6f,-15f);
