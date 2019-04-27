@@ -53,6 +53,52 @@ public class PlayerController : MonoBehaviour
             Debug.Log("D press");
         }
 
+        //if (!Input.anyKeyDown)    
+        //{
+        //    movingRight = false;
+        //    movingLeft = false;
+        //}
+
+        //switch (lane)
+        //{
+        //    case 1: //Leftmost end of the map
+        //        position -= Vector3.right * LANE_DIST;
+        //        Debug.Log("In Lane 1");
+        //        break;
+        //    case 2:
+        //        if (movingRight)
+        //            position += Vector3.right * LANE_DIST;
+        //        else if (movingLeft)
+        //            position -= Vector3.right * LANE_DIST;
+        //        Debug.Log("In Lane 2");
+        //        break;
+        //    case 3:
+        //        if (movingRight)
+        //            position += Vector3.right * LANE_DIST;
+        //        else if (movingLeft)
+        //            position -= Vector3.right * LANE_DIST;
+        //        Debug.Log("In Lane 3");
+        //        break;
+        //    case 4:
+        //        if (movingRight)
+        //            position += Vector3.right * LANE_DIST;
+        //        else if (movingLeft)
+        //            position -= Vector3.right * LANE_DIST;
+        //        Debug.Log("In Lane 4");
+        //        break;
+        //    case 5:
+        //        position += Vector3.right * LANE_DIST;
+        //        Debug.Log("In Lane 5");
+        //        break;
+
+        //}
+        //Vector3 moveVector = Vector3.zero;
+        //moveVector.x = (position - transform.position).normalized.x * laneChangeSpeed;
+        ////moveVector.y = 0.6f;
+        ////moveVector.z = -42.3f;
+        ////rb.MovePosition(moveVector * Time.deltaTime);
+        ////if (movingLeft || movingRight)
+        ////    rb.position += moveVector;
        
         if (movingRight)
         {

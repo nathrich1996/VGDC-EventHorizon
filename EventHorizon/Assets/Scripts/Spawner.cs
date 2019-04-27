@@ -4,146 +4,71 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public Fuel fuel;
-
     //public GameOb spawnee;
     public GameObject obstacle;
     public GameObject fuelGem;
-
+    
     public bool stopSpawing = false;
-    bool triggerSpawn;
-    float spawnTime = .05f;
-    float spawnDelay = 3.5f;
+    float spawnTime =2.0f;
+    float spawnDelay = 2.0f;
 
     //Speed stuff
-    float objectSpeed;
     float difficultyObstacleSpeed;
-    float overdriveSpeed = 2f;
-
+    [HideInInspector]
+    public bool overdriveActive;
+    
     Vector3 spawnPoint; //point 
-    string[] spawnObjects = { "obstacle", "gem", "obstacle", "obstacle" }; //holds all possible items that can be spawned
+    string chosenSpawnObject;
+    string[] spawnObjects =  { "obstacle","gem"}; //holds all possible items that can be spawned
     float[] xSpawnPoints = { -20f, -10f, 0f, 10f, 20f };
 
-    void Start()
-    {
-        triggerSpawn = true;
-        objectSpeed = 30;
-        spawnPoint = new Vector3(0, .6f, -15f);
-        StartCoroutine("Spawn");
+    void Start() {
+        spawnPoint = new Vector3(0,.6f,-15f);
         //fuelGem = GameObject.FindGameObjectWithTag("Fuel").GetComponent<FuelGem>();
         //obstacle = GameObject.FindGameObjectWithTag("Obstacle").GetComponent<Obstacle>();
-        //InvokeRepeating("SpawnRow", spawnTime, spawnDelay);
+        InvokeRepeating("SpawnObject", spawnTime, spawnDelay);
+    }
+    public void GetSpawnPointandObject()
+    {
+        randSpawnPoint = Random.Range(0,xSpawnPoints.Length); //randomly select from spawn points
+        randSpawnObject = Random.Range(0, spawnObjects.Length); //randomly select from objects
+        spawnPoint.x = xSpawnPoints[randSpawnPoint];
+        chosenSpawnObject = spawnObjects[randSpawnObject];
     }
 
-
-    IEnumerator Spawn()
-    {
-        for (; ; )
-        {
-            SpawnRow();
-            triggerSpawn = false;
-            yield return new WaitForSeconds((spawnDelay));
-        }
-    }
-
-
-    public void SpawnRow()
-    {
-        int[] lanePopulation = new int[5] { 0, 0, 0, 0, 0 };
-        int numObstacles;
-        int obstacles = 0;
-        int lane;
-
-        if (GetSpeed() < 50)
-        {
-            numObstacles = Random.Range(2, 4);
-            while (obstacles < numObstacles)
-            {
-                lane = Random.Range(0, 5);
-                if (lanePopulation[lane] == 0)
-                {
-                    randSpawnObject = Random.Range(0, spawnObjects.Length-1); //randomly select from objects
-                    //indicates lane is now occupied
-                    lanePopulation[lane] = randSpawnObject;
-                    spawnPoint.x = xSpawnPoints[lane];
-                    //spawns corresponding object
-                    SpawnObject(spawnObjects[randSpawnObject]);
-                    obstacles++;
-                }
-            }
-        }
-        else
-        {
-            numObstacles = Random.Range(0, 3);
-
-
-            while (obstacles < numObstacles)
-            {
-                lane = Random.Range(0, 5);
-                if (lanePopulation[lane] == 0)
-                {
-                    randSpawnObject = Random.Range(0, spawnObjects.Length); //randomly select from objects
-                    //indicates lane is now occupied
-                    lanePopulation[lane] = randSpawnObject;
-                    spawnPoint.x = xSpawnPoints[lane];
-                    //spawns corresponding object
-                    SpawnObject(spawnObjects[randSpawnObject]);
-                    obstacles++;
-                }
-            }
-        }
-        if (stopSpawing)
-        {
-            CancelInvoke("SpawnRow");
-        }
-    }
-
-    public void SpawnObject(string objectName)
-    {
-        switch (objectName)
+    public void SpawnObject() {
+        GetSpawnPointandObject();
+        switch (chosenSpawnObject)
         {
             case "obstacle":
                 spawnPoint.y = 1.5f;
                 GameObject newObstacle = Instantiate(obstacle, spawnPoint, transform.rotation);
-                newObstacle.GetComponent<Obstacle>().SetSpeed(GetSpeed());
-
+                if (overdriveActive)
+                    newObstacle.GetComponent<Obstacle>().SetSpeed(25 + difficultyObstacleSpeed);
+                else
+                    newObstacle.GetComponent<Obstacle>().SetSpeed(40 + difficultyObstacleSpeed);
                 break;
             case "gem":
                 spawnPoint.y = 0.6f;
                 GameObject newGem = Instantiate(fuelGem, spawnPoint, transform.rotation);
-                newGem.GetComponent<FuelGem>().SetSpeed(GetSpeed());
+                if (overdriveActive)
+                    newGem.GetComponent<FuelGem>().SetSpeed(25 + difficultyObstacleSpeed);
+                else
+                    newGem.GetComponent<FuelGem>().SetSpeed(40 + difficultyObstacleSpeed);
                 break;
         }
-    }
-
-    //Delays or speeds up the spawn of the next section of obstacles/fuel
-    public void Delay(float delay)
-    {
-        spawnDelay *= delay;
-        //if (spawnDelay <= 0)
-        //{
-        //    spawnDelay += .05f;
-        //}
-    }
-
-    public void IncrementDifficultySpeed()
-    {
-        difficultyObstacleSpeed += 2;
-    }
-
-    //returns the speed of objects being spawned either during overdrive or not
-    public float GetSpeed()
-    {
-        if (fuel.OverdriveStatus())
-        {
-            objectSpeed = (30 + difficultyObstacleSpeed) * overdriveSpeed;
+        //Instantiate(spawnee, transform.position, transform.rotation);
+        if (stopSpawing) {
+            CancelInvoke("SpawnObject");
         }
-        else
-        {
-            objectSpeed = 30 + difficultyObstacleSpeed;
-        }
-
-        return objectSpeed;
     }
-
+    public void ShortenDelay(float delay)
+    {
+        spawnDelay -= delay;
+        if (spawnDelay <= 0)
+        {
+            spawnDelay += .1f;
+        }
+    }
 }
+  

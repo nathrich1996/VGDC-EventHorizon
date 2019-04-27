@@ -8,7 +8,7 @@ public class FuelGem : MonoBehaviour
     private float gemSpeed = 25.0f;
     bool dead = false;
     public BoxCollider bc;
-    Fuel fuelUI;
+    Fuel fuelUI ;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,7 +41,7 @@ public class FuelGem : MonoBehaviour
             Debug.Log("Gem hit player");
         //GetComponent<Fuel>().fuelMeter++;
         
-        fuelUI.IncrementFuel();
+        fuelUI.fuelMeter++;
             Destroy(gameObject);
         dead = true;
 

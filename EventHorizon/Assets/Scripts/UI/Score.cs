@@ -40,7 +40,7 @@ public class Score : MonoBehaviour
     void CheckOverdrive()
 
     {
-        if (fuel.OverdriveStatus())
+        if (fuel.overdrive)
         {
             score_text.color = Color.yellow;
             multiplier = 20;
@@ -50,11 +50,6 @@ public class Score : MonoBehaviour
             score_text.color = Color.white;
             multiplier = 10;
         }
-    }
-
-    public int GetScore()
-    {
-        return score;
     }
 
 
