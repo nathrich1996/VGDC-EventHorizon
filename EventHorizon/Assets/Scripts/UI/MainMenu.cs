@@ -8,10 +8,14 @@ public class MainMenu : MonoBehaviour
     // Start is called before the first frame update
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1); //Play game
     }
     public void QuitGame()
     {
-        Application.Quit();
+        Application.Quit(); //Quit Game
+    }
+    public void PlayCredits()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2); //PlayCredits
     }
 }

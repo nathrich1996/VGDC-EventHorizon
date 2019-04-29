@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EventHorizon.unity
     guid: 4b2f0c0766fe3af4099d5804a93ab7f1
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 92b9215d1aa80b3479a2f22ebab9517e
   m_configObjects: {}
