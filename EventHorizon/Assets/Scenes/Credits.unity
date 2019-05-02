@@ -272,8 +272,9 @@ GameObject:
   - component: {fileID: 132452671}
   - component: {fileID: 132452670}
   - component: {fileID: 132452669}
+  - component: {fileID: 132452673}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Credits
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -361,6 +362,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &132452673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132452668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7946d736f07aea4e9b1f61217e9d2d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &184238727
 GameObject:
   m_ObjectHideFlags: 0
@@ -756,7 +769,7 @@ GameObject:
   - component: {fileID: 860955933}
   - component: {fileID: 860955932}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -821,7 +834,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 860955933}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 132452673}
+        m_MethodName: BacktoMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &860955933
@@ -1169,7 +1193,7 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: "Noah Christensen\n\n\n\nMindy K Strouse\nSamuel Na\nNoah Christensen\n\n\nZach\n\n\nNathaniel
-    Richards\nNoah Christensen\nMauricio\n\nSamuel Na\n\n\nLeonel Cazares\nZach\n\n\nForgotten
+    Richards\nNoah Christensen\nMauricio Macias\n\nSamuel Na\n\n\nLeonel Cazares\nZach\n\n\nForgotten
     by Mido\nAvailable on Soundcloud\n\nMain Title Theme\nby Leonel Cazares\n\n\nVGDC
     Paid Participants:\nWilliam Au\r\nMelanie Ballesteros\r\nCarly Buck\r\nBradley
     \ Burke\r\nKristi Chang\r\nGordon Dan\r\nYafu Deng\r\nKaitlyn Deppmeier\r\nSebastian
