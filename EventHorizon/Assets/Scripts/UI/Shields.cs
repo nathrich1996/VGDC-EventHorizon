@@ -8,12 +8,15 @@ public class Shields : MonoBehaviour
     public int currentShields;
     public DeathMenu dm;
 
+    MusicControl mControl;
+
    public  bool noShields = false;
     // Start is called before the first frame update
     void Start()
     {
         currentShields = 3;
-        
+        mControl = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MusicControl>();
+
     }
 
     // Update is called once per frame
@@ -27,6 +30,7 @@ public class Shields : MonoBehaviour
         if (noShields)
         {
             dm.ToggleDeathMenu();
+            mControl.DeathAudio();
         }
         //shields.text = "shield: " + currentShields.ToString();
     }

@@ -8,6 +8,7 @@ public class Obstacle : MonoBehaviour
     bool dead = false;
     Shields shieldsUI;
     public BoxCollider bc;
+    MusicControl mControl;
    
     private float obsSpeed = 25.0f; 
     // Start is called before the first frame update
@@ -15,6 +16,7 @@ public class Obstacle : MonoBehaviour
     {
         bc = GetComponent<BoxCollider>();
         shieldsUI = GameObject.FindGameObjectWithTag("Shield UI").GetComponent<Shields>();
+        mControl = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MusicControl>();
         // shields.GetComponent<Shields>();
     }
 
@@ -41,6 +43,7 @@ public class Obstacle : MonoBehaviour
     private void OnTriggerEnter (Collider collide)
     {
         shieldsUI.currentShields--;
+        mControl.ShieldBreak();
         Destroy(gameObject);
         dead = true;
     }

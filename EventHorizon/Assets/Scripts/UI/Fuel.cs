@@ -16,6 +16,7 @@ public class Fuel : MonoBehaviour
     bool overdrive = false;
 
     float overdriveTimer = 0;
+    MusicControl mControl;
 
     GameObject[] obstacles;
     GameObject[] gems;
@@ -28,6 +29,7 @@ public class Fuel : MonoBehaviour
         fuelMeter = 5;
         timer = 0f;
         fuel_interval = 5.0f;
+        mControl = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MusicControl>();
     }
 
     // Update is called once per frame
@@ -47,6 +49,7 @@ public class Fuel : MonoBehaviour
         if (noFuel)
         {
             dm.ToggleDeathMenu();
+            mControl.DeathAudio();
         }
         else
         {
@@ -96,6 +99,7 @@ public class Fuel : MonoBehaviour
     //Increments Fuel, checks overdrive, updates object speeds if necessary
     public void IncrementFuel()
     {
+        mControl.CollectFuel();
         if (fuelMeter < 10)
         {
             fuelMeter++;
@@ -103,6 +107,7 @@ public class Fuel : MonoBehaviour
         if (fuelMeter > 5 && overdrive != true)
         {
             overdrive = true;
+            mControl.OverdriveStart();
             SetFuelGemSpeed();
             SetObstacleSpeed();
             spawner.Delay(.5f);
@@ -118,6 +123,7 @@ public class Fuel : MonoBehaviour
         else if (fuelMeter <= 5 && overdrive != false)
         {
             overdrive = false;
+            mControl.RunStart();
             SetFuelGemSpeed();
             SetObstacleSpeed();
             spawner.Delay(2f);
