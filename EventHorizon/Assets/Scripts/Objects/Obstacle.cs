@@ -42,9 +42,13 @@ public class Obstacle : MonoBehaviour
     }
     private void OnTriggerEnter (Collider collide)
     {
-        shieldsUI.currentShields--;
-        mControl.ShieldBreak();
-        Destroy(gameObject);
+        if (collide.gameObject == GameObject.FindWithTag("Player"))
+        {
+            shieldsUI.currentShields--;
+            mControl.ShieldBreak();
+            Destroy(gameObject);
+        }
+
         dead = true;
     }
     public void SetSpeed(float speed)
