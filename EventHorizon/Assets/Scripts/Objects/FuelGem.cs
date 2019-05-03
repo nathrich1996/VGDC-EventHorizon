@@ -32,7 +32,7 @@ public class FuelGem : MonoBehaviour
     {
         if (transform.position.z < -200.0f)
         {
-            Destroy(GetComponent<Rigidbody>());
+            Destroy(gameObject);
             dead = true;
         }
     }
