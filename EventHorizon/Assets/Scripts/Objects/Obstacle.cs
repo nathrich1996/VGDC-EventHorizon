@@ -44,9 +44,14 @@ public class Obstacle : MonoBehaviour
     {
         if (collide.gameObject == GameObject.FindWithTag("Player"))
         {
+            Debug.Log("COLLISION WITH PLAYER");
             shieldsUI.currentShields--;
             mControl.ShieldBreak();
             Destroy(gameObject);
+        }
+        else
+        {
+            Debug.Log("INSIDE OBJECT");
         }
 
         dead = true;
