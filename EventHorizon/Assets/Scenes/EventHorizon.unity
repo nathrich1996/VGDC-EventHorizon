@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.19704121, g: 0.081080236, b: 0.03667168, a: 1}
+  m_IndirectSpecularColor: {r: 0.19699422, g: 0.081087224, b: 0.036641512, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -401,6 +401,10 @@ PrefabInstance:
     - target: {fileID: 100064, guid: beecbf2e991124268a58b9167f302597, type: 3}
       propertyPath: m_Name
       value: PlayerCharacter
+      objectReference: {fileID: 0}
+    - target: {fileID: 100064, guid: beecbf2e991124268a58b9167f302597, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 400064, guid: beecbf2e991124268a58b9167f302597, type: 3}
       propertyPath: m_LocalPosition.x
@@ -840,7 +844,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 374370d66b3bb65448e37ee1a688b1ca, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -853,7 +857,7 @@ AudioSource:
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
-  BypassListenerEffects: 0
+  BypassListenerEffects: 1
   BypassReverbZones: 0
   rolloffCustomCurve:
     serializedVersion: 2
@@ -1814,7 +1818,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27a1d9ec42a2b5448b07f932ef8156a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 1467443770}
   laneChangeSpeed: 55
+--- !u!95 &1467443770 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9500000, guid: beecbf2e991124268a58b9167f302597,
+    type: 3}
+  m_PrefabInstance: {fileID: 323129958}
+  m_PrefabAsset: {fileID: 0}
 --- !u!65 &1467443772
 BoxCollider:
   m_ObjectHideFlags: 0
