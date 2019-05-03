@@ -17,13 +17,16 @@ public class DeathMenu : MonoBehaviour
     // Update is called once per frame
     public void ToggleDeathMenu()
     {
+        gameObject.SetActive(true);
         mControl.DeathAudio();
         deathScreenActive = true;
-        gameObject.SetActive(true);
+        
     }
     public void Restart()
     {
         mControl.RunStart();
+        deathScreenActive = false;
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public void QuitToMainMenu()

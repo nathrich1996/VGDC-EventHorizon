@@ -42,7 +42,7 @@ public class Obstacle : MonoBehaviour
     }
     private void OnTriggerEnter (Collider collide)
     {
-        if (collide.CompareTag("Player"))
+        if (collide.gameObject == GameObject.FindWithTag("Player"))
         {
             shieldsUI.currentShields--;
             mControl.ShieldBreak();

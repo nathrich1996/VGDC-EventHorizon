@@ -10,6 +10,7 @@ public class Spawner : MonoBehaviour
     GameObject obstacle;
     public GameObject fuelGem;
     public GameObject[] obstacles;
+    public DeathMenu dm;
     public bool stopSpawing = false;
     bool triggerSpawn;
     float spawnTime = .05f;
@@ -40,7 +41,7 @@ public class Spawner : MonoBehaviour
 
     IEnumerator Spawn()
     {
-        for (; ; )
+        while (!dm.deathScreenActive)
         {
             SpawnRow();
             triggerSpawn = false;
