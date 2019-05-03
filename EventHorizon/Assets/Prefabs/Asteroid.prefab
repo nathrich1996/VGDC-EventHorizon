@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2456097323139675424}
   - component: {fileID: 2456097323139675455}
   m_Layer: 0
-  m_Name: Asteroid1
+  m_Name: Asteroid
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -103,5 +103,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.509565, y: 4.721675, z: 4.9811373}
-  m_Center: {x: -0.07304549, y: 0.11626649, z: -9.580082}
+  m_Size: {x: 5.261791, y: 4.721675, z: 5.9250336}
+  m_Center: {x: -0.089574814, y: 0.11626649, z: -9.717041}

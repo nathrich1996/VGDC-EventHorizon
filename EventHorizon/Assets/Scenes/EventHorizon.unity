@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.19704121, g: 0.081080236, b: 0.03667168, a: 1}
+  m_IndirectSpecularColor: {r: 0.19699422, g: 0.081087224, b: 0.036641512, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -861,6 +861,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -169.82
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: beecbf2e991124268a58b9167f302597, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 703ca970d03a61b409fdbf7b19b765e0, type: 2}
     - target: {fileID: 9500000, guid: beecbf2e991124268a58b9167f302597, type: 3}
       propertyPath: m_ApplyRootMotion
       value: 1
@@ -869,10 +873,6 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 48f824684cf6618408ecbbc2c209ceb5, type: 2}
-    - target: {fileID: 2300000, guid: beecbf2e991124268a58b9167f302597, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 703ca970d03a61b409fdbf7b19b765e0, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: beecbf2e991124268a58b9167f302597, type: 3}
 --- !u!1 &328498584
@@ -1343,7 +1343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71cfdf556bbaff47b32901187943fa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  overdrive: {fileID: 8300000, guid: 9b2b0e04f5838b548825844cc46c92c0, type: 3}
+  overdrive: {fileID: 8300000, guid: f84960e7419a24678942e3e24630ee78, type: 3}
   runTheme: {fileID: 8300000, guid: 374370d66b3bb65448e37ee1a688b1ca, type: 3}
   buttonClick: {fileID: 8300000, guid: 2c58a521fad2d074bb9dc923e5db2a9a, type: 3}
   lowFuel: {fileID: 8300000, guid: a64b2912b48a2694fa7f06f8bed4ef4f, type: 3}
@@ -3018,6 +3018,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Asteroid3
+      objectReference: {fileID: 0}
+    - target: {fileID: 297591691694366919, guid: 3504a1d0b8762a445bb009e2ad79e024,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 297591691694366924, guid: 3504a1d0b8762a445bb009e2ad79e024,
         type: 3}
