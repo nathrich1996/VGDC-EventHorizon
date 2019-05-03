@@ -28,6 +28,6 @@ public class Shields : MonoBehaviour
         {
             dm.ToggleDeathMenu();
         }
-        shields.text = "shield: " + currentShields.ToString();
+        //shields.text = "shield: " + currentShields.ToString();
     }
 }
