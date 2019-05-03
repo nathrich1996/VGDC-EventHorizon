@@ -69,7 +69,7 @@ public class Fuel : MonoBehaviour
                 }
             }
 
-            fuelText.text = "fuel: " + fuelMeter.ToString();
+            //fuelText.text = "fuel: " + fuelMeter.ToString();
             //fuelText.text = spawner.Debug();
 
         }
