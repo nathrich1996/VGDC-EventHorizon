@@ -1192,15 +1192,16 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "Noah Christensen\n\n\n\nMindy K Strouse\nSamuel Na\nNoah Christensen\n\n\nZach\n\n\nNathaniel
-    Richards\nNoah Christensen\nMauricio Macias\n\nSamuel Na\n\n\nLeonel Cazares\nZach\n\n\nForgotten
-    by Mido\nAvailable on Soundcloud\n\nMain Title Theme\nby Leonel Cazares\n\n\nVGDC
-    Paid Participants:\nWilliam Au\r\nMelanie Ballesteros\r\nCarly Buck\r\nBradley
-    \ Burke\r\nKristi Chang\r\nGordon Dan\r\nYafu Deng\r\nKaitlyn Deppmeier\r\nSebastian
-    Hernandez\r\nJalen Jackson\r\nCarla Jacobsen\r\nEmma Luu\r\nLorena  Macias\r\nAlejandra
-    Matus\r\nKaitlyn Mejia\r\nSamuel Na\r\nChris Nguyen\r\nTara Nguyen\r\nTracy Origel\r\nGraciela
-    Orozco\r\nMichael Perez\r\nYuri Pineda\r\nStephanie Pocci\r\nCindy Proa\xF1o\r\nLaurie
-    Quach\r\nArielle Ramos\r\nNathaniel Richards\r\nChristine Rodriguez\r\nKyle Seabaugh\r\nLudwig
+  m_Text: "Noah Christensen\n\n\n\nMindy K Strouse\nSamuel Na\nNoah Christensen\n\n\nZachary
+    Ruiz-Vinas\n\n\nNathaniel Richards\nNoah Christensen\nMauricio Macias\n\nSamuel
+    Na\n\n\nLeonel Cazares\nZachary Ruiz-Vinas\n\n\nForgotten by Mido\nAvailable on
+    Soundcloud\n\nMain Title Theme\nby Leonel Cazares\n\n\nVGDC Paid Participants:\nWilliam
+    Au\r\nMelanie Ballesteros\r\nCarly Buck\r\nBradley  Burke\r\nKristi Chang\r\nGordon
+    Dan\r\nYafu Deng\r\nKaitlyn Deppmeier\r\nSebastian Hernandez\r\nJalen Jackson\r\nCarla
+    Jacobsen\r\nEmma Luu\r\nLorena  Macias\r\nAlejandra Matus\r\nKaitlyn Mejia\r\nSamuel
+    Na\r\nChris Nguyen\r\nTara Nguyen\r\nTracy Origel\r\nGraciela Orozco\r\nMichael
+    Perez\r\nYuri Pineda\r\nStephanie Pocci\r\nCindy Proa\xF1o\r\nLaurie Quach\r\nArielle
+    Ramos\r\nNathaniel Richards\r\nChristine Rodriguez\r\nKyle Seabaugh\r\nLudwig
     Tan\r\nJonathan Torres\r\nEdward Torres-Tzoni\nRaymond Fanning\r\nDaniel Domingo"
 --- !u!222 &1018949782
 CanvasRenderer:
