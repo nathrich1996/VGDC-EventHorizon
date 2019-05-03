@@ -49,7 +49,6 @@ public class Fuel : MonoBehaviour
         if (noFuel)
         {
             dm.ToggleDeathMenu();
-            mControl.DeathAudio();
         }
         else
         {
