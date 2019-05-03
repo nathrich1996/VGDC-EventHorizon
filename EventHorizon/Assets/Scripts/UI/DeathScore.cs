@@ -19,7 +19,12 @@ public class DeathScore : MonoBehaviour
     {
         if (score < sc.score)
         {
-            score += 10;
+            if (sc.score > 4000)
+                score += 50;
+            else if (sc.score <= 4000 && sc.score >= 2000)
+                score += 20;
+            else if (sc.score < 2000)
+                score += 10;
         }
         else
             score = sc.score;
