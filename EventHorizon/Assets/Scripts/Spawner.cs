@@ -7,9 +7,9 @@ public class Spawner : MonoBehaviour
     public Fuel fuel;
 
     //public GameOb spawnee;
-    public GameObject obstacle;
+    GameObject obstacle;
     public GameObject fuelGem;
-
+    public GameObject[] obstacles;
     public bool stopSpawing = false;
     bool triggerSpawn;
     float spawnTime = .05f;
@@ -109,6 +109,8 @@ public class Spawner : MonoBehaviour
         {
             case "obstacle":
                 spawnPoint.y = 1.5f;
+                int chosenObstacle = Random.Range(0, obstacles.Length); //get random obstacle
+                obstacle = obstacles[chosenObstacle]; //assign to obstacle that will spawn
                 GameObject newObstacle = Instantiate(obstacle, spawnPoint, transform.rotation);
                 newObstacle.GetComponent<Obstacle>().SetSpeed(GetSpeed());
 

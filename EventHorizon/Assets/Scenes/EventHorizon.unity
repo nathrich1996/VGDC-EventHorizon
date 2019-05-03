@@ -658,9 +658,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fuel: {fileID: 958634021}
-  obstacle: {fileID: 2456097323139675451, guid: dc2a93be95f38204c8bbf0d60abfb9f2,
-    type: 3}
   fuelGem: {fileID: 907590929465375770, guid: be3a9f8810e24634993d7785eaeccdba, type: 3}
+  obstacles:
+  - {fileID: 2456097323139675451, guid: dc2a93be95f38204c8bbf0d60abfb9f2, type: 3}
+  - {fileID: 3641718754707157460, guid: c300b62220398b64dade694664d30f66, type: 3}
+  - {fileID: 297591691694366919, guid: 3504a1d0b8762a445bb009e2ad79e024, type: 3}
+  - {fileID: 4052238785749595739, guid: 552cf39b7363f8c499a22309b09d52e2, type: 3}
   stopSpawing: 0
 --- !u!4 &287008118
 Transform:
