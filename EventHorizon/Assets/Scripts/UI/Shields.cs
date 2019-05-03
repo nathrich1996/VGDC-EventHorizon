@@ -30,7 +30,6 @@ public class Shields : MonoBehaviour
         if (noShields)
         {
             dm.ToggleDeathMenu();
-            mControl.DeathAudio();
         }
         //shields.text = "shield: " + currentShields.ToString();
     }
