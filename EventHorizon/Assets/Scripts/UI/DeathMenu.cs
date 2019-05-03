@@ -23,6 +23,7 @@ public class DeathMenu : MonoBehaviour
     }
     public void Restart()
     {
+        mControl.RunStart();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public void QuitToMainMenu()
