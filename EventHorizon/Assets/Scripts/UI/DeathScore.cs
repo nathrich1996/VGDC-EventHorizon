@@ -18,7 +18,9 @@ public class DeathScore : MonoBehaviour
     void Update()
     {
         if (score < sc.score)
-            score+=10;
+        {
+            score += 10;
+        }
         else
             score = sc.score;
         score_text.text = "Score: " + score.ToString();

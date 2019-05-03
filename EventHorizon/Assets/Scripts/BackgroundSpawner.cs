@@ -4,25 +4,32 @@ using UnityEngine;
 
 public class BackgroundSpawner : MonoBehaviour
 {
-    public GameObject spawnee;
+     GameObject spawnee;
     public GameObject[] obstacles;
     public bool stopSpawing = false;
     public float spawnTime;
     public float spawnDelay;
+    float timer;
 
     void Start()
     {
-        InvokeRepeating("SpawnObject", spawnTime, spawnDelay);
+        SpawnObject();
+        timer = 0;
     }
-
+    void Update()
+    {
+        timer += Time.deltaTime;
+        if (timer >=3.0f)
+        {
+            SpawnObject();
+            timer = 0;
+        }
+    }
     public void SpawnObject()
     {
         int chosenSpawnee = Random.Range(0, obstacles.Length);
         spawnee = obstacles[chosenSpawnee];
         Instantiate(spawnee, transform.position, transform.rotation);
-        if (stopSpawing)
-        {
-            CancelInvoke("SpawnObject");
-        }
+       
     }
 }
