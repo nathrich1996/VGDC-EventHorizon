@@ -31,6 +31,10 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2); //PlayCredits
     }
+    public void HowtoPlay()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 3); //PlayCredits
+    }
     void FadeIn()
     {
         mmImage.CrossFadeAlpha(1.0f, 1.5f, false);
