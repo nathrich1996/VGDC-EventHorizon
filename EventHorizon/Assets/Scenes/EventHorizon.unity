@@ -1238,7 +1238,7 @@ MonoBehaviour:
   inOverdrive: {fileID: 245369430175712768, guid: bc085fb5ee491d44a926b096a0c7ea94,
     type: 2}
   running: {fileID: 24500006, guid: bc085fb5ee491d44a926b096a0c7ea94, type: 2}
-  dead: {fileID: 0}
+  dead: {fileID: 245619831007074116, guid: bc085fb5ee491d44a926b096a0c7ea94, type: 2}
   source: {fileID: 1006607647}
 --- !u!82 &534669908
 AudioSource:

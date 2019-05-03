@@ -20,7 +20,6 @@ public class MusicControl : MonoBehaviour
 
     public AudioSource source;
 
-    bool overdriveInit = false;
     private float transitionIn;
     private float transitionOut;
     private float quarterNote;
