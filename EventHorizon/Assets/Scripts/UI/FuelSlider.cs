@@ -19,20 +19,11 @@ public class FuelSlider : MonoBehaviour
     private void Update()
     {
         UpdateFuelBar();
-        UpdateFillBar();
     }
     // Update is called once per frame
     public void UpdateFuelBar()
     {
         fuelBar.value = fuel.GetFuelLevel();
-      
     }
-    public void UpdateFillBar()
-    {
-        int cFuel = fuel.GetFuelLevel();
-        if (cFuel > 5)
-        {
-            
-        }
-    }
+   
 }

@@ -774,7 +774,6 @@ MonoBehaviour:
   obstacles:
   - {fileID: 2456097323139675451, guid: dc2a93be95f38204c8bbf0d60abfb9f2, type: 3}
   - {fileID: 2035150290814854904, guid: 552cf39b7363f8c499a22309b09d52e2, type: 3}
-  - {fileID: 297591691694366919, guid: 3504a1d0b8762a445bb009e2ad79e024, type: 3}
   dm: {fileID: 819853375}
   stopSpawing: 0
 --- !u!4 &287008118
